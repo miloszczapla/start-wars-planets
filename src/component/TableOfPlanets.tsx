@@ -1,6 +1,10 @@
 import React from 'react';
 
-const TableOfPlanets = () => {
+interface Props {
+  id: string;
+}
+
+const TableOfPlanets = ({ id }: Props) => {
   return <div>hello</div>;
 };
 

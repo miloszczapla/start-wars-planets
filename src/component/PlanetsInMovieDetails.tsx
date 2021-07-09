@@ -2,6 +2,7 @@ import arrowOpen from '../assets/ARROW OPEN.svg';
 import arrowClose from '../assets/ARROW CLOSE.svg';
 import { useState } from 'react';
 import TableOfPlanets from './TableOfPlanets';
+import { Collapse } from 'react-collapse';
 
 interface Props {
   id: string;
@@ -9,28 +10,33 @@ interface Props {
 }
 
 const PlanetsInMovieDetails = ({ id, title }: Props) => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
-      className='flex flex-col  bg-white shadow-collapsableElement w-full rounded-lg'
-      onClick={() => setOpen(!open)}
+      className={`flex flex-col bg-white shadow-collapsableElement w-full rounded-t-md ${
+        isOpen ? '' : 'rounded-b-md'
+      }`}
     >
       <div
+        onClick={() => setIsOpen(!isOpen)}
         className={`flex justify-between items-center py-2 px-3 focus-within:sr-only ${
-          open ? '' : 'shadow-collapsableTitle'
+          isOpen ? 'shadow-collapsableTitle' : ''
         }`}
       >
-        <h2 className='text-textMain'>{title}</h2>
+        <h2 className='text-textMain font-bold rounded-md'>{title}</h2>
         <img
-          src={open ? arrowClose : arrowOpen}
+          src={isOpen ? arrowClose : arrowOpen}
           alt='arrow'
           className={`${
-            open ? 'text-textVariant' : 'text-textMain'
-          } rounded-full w-8 h-8`}
+            isOpen ? 'text-textMain' : 'text-textVariant'
+          } rounded-full w-4 h-4 transition duration-500`}
         />
       </div>
-      {open ? <TableOfPlanets /> : null}
+
+      <Collapse isOpened={isOpen}>
+        {isOpen ? <TableOfPlanets id={id} /> : null}
+      </Collapse>
     </div>
   );
 };
