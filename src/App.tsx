@@ -1,8 +1,9 @@
 import './index.css';
 import 'tailwindcss/tailwind.css';
+import PlanetsByMovie from './PlanetsByMovie';
 
 function App() {
-  return <div>hello World</div>;
+  return <PlanetsByMovie />;
 }
 
 export default App;
