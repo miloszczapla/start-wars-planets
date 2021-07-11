@@ -5,3 +5,47 @@
 .ReactCollapse--collapse {
   transition: height 500ms;
 }
+
+.planet-info-name {
+  @apply text-xs text-left text-textMain flex items-center justify-start;
+  flex-grow: 2;
+}
+
+.planet-info-text {
+  @apply text-xs text-right text-textBlack  flex items-center justify-end;
+  flex-grow: 1;
+}
+
+.first-header:first-child {
+  @apply text-textMain whitespace-nowrap;
+}
+.first-column:first-child {
+  @apply text-textMain text-left;
+}
+
+.sorted-arrow {
+  height: 0.5rem;
+}
+
+.rotated-180 {
+  rotate: 180deg;
+}
+
+.exposure {
+  z-index: 2;
+}
+
+.table-of-planets {
+  @apply flex flex-col w-full p-4;
+}
+
+.table-of-planets:nth-child(2n) {
+  @apply bg-bacgroundDark;
+}
+.row-of-table {
+  @apply flex flex-row text-left text-textBlack text-xs items-center h-8;
+}
+
+.row-of-table:first-child p {
+  @apply text-textMain;
+}

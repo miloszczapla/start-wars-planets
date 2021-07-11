@@ -5,11 +5,11 @@ import TableOfPlanets from './TableOfPlanets';
 import { Collapse } from 'react-collapse';
 
 interface Props {
-  id: string;
+  planetsIds: string[];
   title: string;
 }
 
-const PlanetsInMovieDetails = ({ id, title }: Props) => {
+const PlanetsInMovieDetails = ({ title, planetsIds }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -35,7 +35,8 @@ const PlanetsInMovieDetails = ({ id, title }: Props) => {
       </div>
 
       <Collapse isOpened={isOpen}>
-        {isOpen ? <TableOfPlanets id={id} /> : null}
+        {/* {isOpen ? <TableOfPlanets planets={planets} /> : null} */}
+        <TableOfPlanets planetsIds={planetsIds} />
       </Collapse>
     </div>
   );

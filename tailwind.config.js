@@ -16,6 +16,8 @@ module.exports = {
       textMain: '#00687F',
       textVariant: '#5FBBCF',
       textBlack: '#474747',
+      border: '#C4C4C4',
+      bacgroundDark: 'rgba(229, 229, 229, 0.5)',
       ...colors,
     },
     boxShadow: {
