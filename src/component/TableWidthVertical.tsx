@@ -1,62 +1,14 @@
-import { useContext, useMemo, useState } from 'react';
 import { useSortBy, useTable } from 'react-table';
-import { COLUMNS } from '../help-classes/Columns';
-import { FilmsContext } from '../help-classes/FilmsContext';
 import { Planet } from '../help-classes/types';
 import SORTARROW from '../assets/SORTARROW.svg';
 import SORTARROWSELECTED from '../assets/SORTARROWSELECTED.svg';
 
-import PlanetInfo from './PlanetInfo';
-
 interface Props {
-  planetsIds: string[];
-}
-
-interface Data {
-  planets: Planet[];
-}
-
-const TableOfPlanets = ({ planetsIds }: Props) => {
-  const [isWidthScreen, setIsWidthScreen] = useState(window.screen.width > 680);
-
-  const handleResize = () => {
-    setIsWidthScreen(window.screen.width > 680);
-  };
-
-  //change table style when screen resize
-  window.addEventListener('resize', handleResize);
-
-  const columns = useMemo(() => COLUMNS, []);
-
-  const { planets }: Data = useContext(FilmsContext);
-
-  const filteredPlanets = planets.filter((planet) => {
-    // sepreate string before being show in table
-    if (!(typeof planet.climates === 'string')) {
-      planet.climates = planet.climates.join('\n');
-    }
-    return planetsIds.includes(planet.id);
-  });
-
-  return (
-    <>
-      {isWidthScreen ? (
-        <Table columns={columns} data={filteredPlanets} />
-      ) : (
-        filteredPlanets.map((planet) => (
-          <PlanetInfo key={planet.id} {...planet} />
-        ))
-      )}
-    </>
-  );
-};
-
-interface TableProps {
   columns: any;
   data: Planet[];
 }
 
-const Table = ({ columns, data }: TableProps) => {
+const TableWidthVertical = ({ columns, data }: Props) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable(
       {
@@ -138,4 +90,4 @@ const Table = ({ columns, data }: TableProps) => {
   );
 };
 
-export default TableOfPlanets;
+export default TableWidthVertical;

@@ -3,17 +3,20 @@ import {
   ObjectOfProperties,
 } from '../help-classes/Columns';
 import { Planet } from '../help-classes/types';
+interface Props {
+  planet: Planet;
+  movieId: string;
+}
 
-const PlanetInfo = (planet: Planet) => {
+const TableThinVertical = ({ planet, movieId }: Props) => {
   const entriesOfPlanet = Object.entries(planet);
-  console.log(planet);
 
   return (
     <div className='table-of-planets'>
       {entriesOfPlanet.map(([key, value]) => {
         if (arrayOfPlanetProperties.includes(key)) {
           return (
-            <div className='row-of-table' key={planet.id}>
+            <div className='row-of-table' key={movieId + planet.id + key}>
               <h2 className='flex-1'>
                 {
                   //@ts-ignore
@@ -23,10 +26,12 @@ const PlanetInfo = (planet: Planet) => {
               <p className='flex-1'>{value}</p>
             </div>
           );
+        } else {
+          return null;
         }
       })}
     </div>
   );
 };
 
-export default PlanetInfo;
+export default TableThinVertical;

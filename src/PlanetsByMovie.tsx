@@ -1,6 +1,6 @@
 import logo from './assets/LOGO.svg';
 
-import PlanetsInMovieDetails from './component/PlanetsInMovieDetails';
+import PlanetsInMovieDetails from './component/PlanetsInMovie';
 import jsonFile from './assets/data.json';
 import { FilmsContext } from './help-classes/FilmsContext';
 import { Film } from './help-classes/types';
@@ -22,8 +22,7 @@ const PlanetsByMovie = () => {
   );
 
   //FIXME: make it faster and more readable
-  //add to every movie planets that are in them
-
+  //add planets to every movie that are in them
   planets.forEach((planet) => {
     //be sure that if there is no value we show 'unknown'
     let property: keyof typeof planet;
@@ -45,18 +44,7 @@ const PlanetsByMovie = () => {
         movie.planetsIds.push(planet.id);
       }
     });
-
-    //alternative solution(with nested forEach)
-    // planet.filmConnection.films.forEach(({ id }) => {
-    //   movies.forEach((movie) => {
-    //     if (movie.id === id) {
-    //       movie.planetsIds.push(planet.id);
-    //     }
-    //   });
-    // });
   });
-
-  console.log(movies);
 
   return (
     <div className='mx-auto my-6  p-4 bg-backgroundMain flex flex-col items-center rounded-lg gap-2 xs:max-w-2xl  xs:my-10 '>

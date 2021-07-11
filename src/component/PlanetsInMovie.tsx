@@ -1,15 +1,16 @@
 import arrowOpen from '../assets/ARROW OPEN.svg';
 import arrowClose from '../assets/ARROW CLOSE.svg';
 import { useState } from 'react';
-import TableOfPlanets from './TableOfPlanets';
+import ListOfPlanets from './ListOfPlanets';
 import { Collapse } from 'react-collapse';
 
 interface Props {
+  id: string;
   planetsIds: string[];
   title: string;
 }
 
-const PlanetsInMovieDetails = ({ title, planetsIds }: Props) => {
+const PlanetsInMovie = ({ id, title, planetsIds }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -33,13 +34,12 @@ const PlanetsInMovieDetails = ({ title, planetsIds }: Props) => {
           } rounded-full w-4 h-4 transition duration-500`}
         />
       </div>
-
+      {}
       <Collapse isOpened={isOpen}>
-        {/* {isOpen ? <TableOfPlanets planets={planets} /> : null} */}
-        <TableOfPlanets planetsIds={planetsIds} />
+        <ListOfPlanets planetsIds={planetsIds} movieId={id} />
       </Collapse>
     </div>
   );
 };
 
-export default PlanetsInMovieDetails;
+export default PlanetsInMovie;

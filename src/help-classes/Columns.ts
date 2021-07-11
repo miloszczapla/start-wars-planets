@@ -10,11 +10,11 @@ export const arrayOfPlanetProperties: string[] = [
 
 export const ObjectOfProperties = {
   name: 'Planet Name',
-  rotationPeriod: 'Rotation period',
-  orbitalPeriod: 'Orbital period',
+  rotationPeriod: 'Rotation \n period',
+  orbitalPeriod: 'Orbital\nperiod',
   diameter: 'Diameter',
   climates: 'Climate',
-  surfaceWater: 'Surface water',
+  surfaceWater: 'Surface\nwater',
   population: 'Population',
 };
 
@@ -25,12 +25,12 @@ export const COLUMNS = [
   },
 
   {
-    Header: 'Rotation period',
+    Header: 'Rotation\nperiod',
 
     accessor: 'rotationPeriod',
   },
   {
-    Header: 'Orbital period',
+    Header: 'Orbital\nperiod',
 
     accessor: 'orbitalPeriod',
     // accessor is the "key" in the data
@@ -47,7 +47,7 @@ export const COLUMNS = [
     accessor: 'climates',
   },
   {
-    Header: 'Surface water',
+    Header: 'Surface\nwater',
 
     accessor: 'surfaceWater',
     // accessor is the "key" in the data
